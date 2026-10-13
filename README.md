@@ -92,7 +92,7 @@ If the dashboard files have been split into separate HTML, CSS, or JavaScript fi
 - AI-generated summaries and sentiment labels should be checked against the original reviews, especially before making business decisions.
 - Automated evaluation of summary quality and sentiment-classification performance can be added in a future iteration.
 
-## Future Improvements
+## Possible Future Improvements
 
 - Integrate the AI Agent directly with the dashboard so users can analyze newly uploaded review datasets.
 - Add aspect-based sentiment analysis to distinguish feedback about quality, performance, price, delivery, and other themes.
