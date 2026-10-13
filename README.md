@@ -75,10 +75,12 @@ ecommerce-review-analyzer/
 ├── screenshots/
 │   ├── ai-agent-test.png
 │   └── dashboard-overview.png
+├── app.js
 ├── dashboard.html
+├── data.js
 ├── laptop_online_review.csv
-├── review_data.js
-└── review_data.json
+├── README.md
+└── styles.css
 ```
 
 If the dashboard files have been split into separate HTML, CSS, or JavaScript files, update this tree to reflect the current repository structure.
