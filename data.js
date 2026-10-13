@@ -1,4 +1,27 @@
-﻿const ALL_REVIEWS = [
+﻿// ============================================================
+// data.js — Dataset & Statistics
+// Source: laptop_online_review.csv (1,001 reviews)
+// ============================================================
+
+// ════════════════════════════════════════════════════════════════════════════
+// DATA — Derived from laptop_online_review.csv (1,001 reviews)
+// ════════════════════════════════════════════════════════════════════════════
+const RAW_STATS = {
+  total: 1001,
+  avgRating: 4.39,
+  ratingDist: {1:57, 2:8, 3:58, 4:238, 5:640},
+  sentiment: {Positive:878, Neutral:58, Negative:65},
+  categories: {
+    "Laptop":  {count:155, avg:4.50, pos:140, neu:10, neg:5,  emoji:"💻"},
+    "Ponsel":  {count:382, avg:4.16, pos:311, neu:32, neg:39, emoji:"📱"},
+    "Kulkas":  {count:240, avg:4.60, pos:222, neu:11, neg:7,  emoji:"🧊"},
+    "Smart TV":{count:224, avg:4.51, pos:205, neu:5,  neg:14, emoji:"📺"}
+  }
+};
+
+// Embedded review records (1001 rows from CSV)
+
+const ALL_REVIEWS = [
   {id:0,product:"Lenovo Ideapad Gaming 3 Ryzen 5 Hexa Core 5600H - (8 GB...",review:"Best under 60k Great performanceI got it for around 58500Battery backup is bit low but thanks to rapid charger its very...",rating:5,category:"Laptop",sentiment:"Positive"},
   {id:1,product:"Lenovo Ideapad Gaming 3 Ryzen 5 Hexa Core 5600H - (8 GB...",review:"Good perfomence...",rating:5,category:"Laptop",sentiment:"Positive"},
   {id:2,product:"Lenovo Ideapad Gaming 3 Ryzen 5 Hexa Core 5600H - (8 GB...",review:"Great performance but usually it has also that gaming laptop's issue of battery. It can only stand for 2 - 3 hrs without...",rating:5,category:"Laptop",sentiment:"Positive"},
