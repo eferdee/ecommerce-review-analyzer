@@ -4,18 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Review Intelligence Dashboard</title>
-<!-- External CSS -->
 <link rel="stylesheet" href="styles.css">
-<!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
 <!-- SIDEBAR -->
-<nav id="sidebar">
+<nav id="sidebar" role="navigation" aria-label="Main navigation">
   <div class="sb-brand">
     <div class="sb-brand-logo">
-      <div class="icon">
+      <div class="icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
       </div>
       <div>
@@ -26,76 +24,76 @@
   </div>
   <div class="sb-nav">
     <div class="sb-section-label">Analytics</div>
-    <div class="sb-item active" onclick="navigate('overview',this)">
-      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <div class="sb-item active" onclick="navigate('overview',this)" role="button" tabindex="0">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       <span class="sb-label">Overview</span>
     </div>
-    <div class="sb-item" onclick="navigate('reviews',this)">
-      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <div class="sb-item" onclick="navigate('reviews',this)" role="button" tabindex="0">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="sb-label">Product Reviews</span>
       <span class="sb-badge">1,001</span>
     </div>
-    <div class="sb-item" onclick="navigate('sentiment',this)">
-      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+    <div class="sb-item" onclick="navigate('sentiment',this)" role="button" tabindex="0">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
       <span class="sb-label">Sentiment Analysis</span>
     </div>
-    <div class="sb-item" onclick="navigate('insights',this)">
-      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <div class="sb-item" onclick="navigate('insights',this)" role="button" tabindex="0">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       <span class="sb-label">AI Insights</span>
     </div>
-    <div class="sb-section-label" style="margin-top:8px">Dataset</div>
-    <div class="sb-item" style="cursor:default;opacity:.6">
-      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <div class="sb-section-label" style="margin-top:4px">Dataset</div>
+    <div class="sb-item" style="cursor:default;opacity:.5" aria-disabled="true">
+      <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       <span class="sb-label">laptop_online_review</span>
     </div>
   </div>
   <div class="sb-footer">v1.0 &nbsp;·&nbsp; Capstone Project 2024</div>
 </nav>
-<div id="sb-overlay" onclick="closeSidebar()"></div>
+<div id="sb-overlay" onclick="closeSidebar()" aria-hidden="true"></div>
 
 <!-- MAIN -->
 <div id="main">
 
   <!-- HEADER -->
-  <header id="header">
-    <button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <header id="header" role="banner">
+    <button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <div class="header-title"><span>Review</span>IQ Dashboard</div>
-    <div class="header-filters">
-      <select class="hf-select" id="filterPeriod" onchange="applyFilters()">
+    <div class="header-title"><span>Review</span>IQ</div>
+    <div class="header-filters" role="toolbar" aria-label="Dashboard filters">
+      <select class="hf-select" id="filterPeriod" onchange="applyFilters()" aria-label="Filter by period">
         <option value="all">Semua Periode</option>
         <option value="q1">Q1 2024</option>
         <option value="q2">Q2 2024</option>
         <option value="q3">Q3 2024</option>
         <option value="q4">Q4 2024</option>
       </select>
-      <select class="hf-select" id="filterCategory" onchange="applyFilters()">
+      <select class="hf-select" id="filterCategory" onchange="applyFilters()" aria-label="Filter by category">
         <option value="all">Semua Kategori</option>
         <option value="Laptop">Laptop</option>
         <option value="Ponsel">Ponsel</option>
         <option value="Kulkas">Kulkas</option>
         <option value="Smart TV">Smart TV</option>
       </select>
-      <select class="hf-select" id="filterSentiment" onchange="applyFilters()">
+      <select class="hf-select" id="filterSentiment" onchange="applyFilters()" aria-label="Filter by sentiment">
         <option value="all">Semua Sentimen</option>
         <option value="Positive">Positive</option>
         <option value="Neutral">Neutral</option>
         <option value="Negative">Negative</option>
       </select>
-      <button class="hf-btn hf-btn-outline" onclick="resetFilters()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.96"/></svg>
-        Reset
+      <button class="hf-btn hf-btn-outline" onclick="resetFilters()" aria-label="Reset all filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.96"/></svg>
+        <span class="btn-text">Reset</span>
       </button>
       <button class="hf-btn hf-btn-primary" onclick="showUploadNotice()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-        Unggah Dataset
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+        <span class="btn-text">Unggah</span>
       </button>
     </div>
   </header>
 
   <!-- CONTENT -->
-  <div id="content">
+  <div id="content" role="main">
 
     <!-- ══════════════════════ PAGE: OVERVIEW ══════════════════════ -->
     <div id="page-overview" class="page active">
@@ -115,7 +113,7 @@
           <div class="kpi-label">Total Ulasan</div>
           <div class="kpi-value" id="kpi-total">1,001</div>
           <div class="kpi-sub">108 produk unik</div>
-          <div class="kpi-icon blue">
+          <div class="kpi-icon blue" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="#4f63d2" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
         </div>
@@ -123,7 +121,7 @@
           <div class="kpi-label">Rata-rata Rating</div>
           <div class="kpi-value" id="kpi-avg">4.39</div>
           <div class="kpi-sub">dari skala 5.0</div>
-          <div class="kpi-icon green">
+          <div class="kpi-icon green" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="#16a34a"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
         </div>
@@ -131,7 +129,7 @@
           <div class="kpi-label">Sentimen Positif</div>
           <div class="kpi-value" id="kpi-pos-pct">87.7%</div>
           <div class="kpi-sub" id="kpi-pos-abs">878 ulasan positif</div>
-          <div class="kpi-icon green">
+          <div class="kpi-icon green" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
           </div>
         </div>
@@ -139,7 +137,7 @@
           <div class="kpi-label">Ulasan Negatif</div>
           <div class="kpi-value" id="kpi-neg">65</div>
           <div class="kpi-sub" id="kpi-neg-pct">6.5% dari total</div>
-          <div class="kpi-icon red">
+          <div class="kpi-icon red" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
         </div>
@@ -150,12 +148,12 @@
         <div class="chart-card">
           <div class="chart-title">Distribusi Sentimen</div>
           <div class="chart-desc">Komposisi Positive, Neutral, dan Negative</div>
-          <div class="chart-wrap"><canvas id="chartSentDoughnut"></canvas></div>
+          <div class="chart-wrap"><canvas id="chartSentDoughnut" aria-label="Sentiment distribution chart"></canvas></div>
         </div>
         <div class="chart-card">
           <div class="chart-title">Distribusi Rating (1–5)</div>
           <div class="chart-desc">Jumlah ulasan per nilai rating</div>
-          <div class="chart-wrap"><canvas id="chartRatingBar"></canvas></div>
+          <div class="chart-wrap"><canvas id="chartRatingBar" aria-label="Rating distribution chart"></canvas></div>
         </div>
       </div>
 
@@ -166,7 +164,7 @@
           <div class="section-sub">Klik kartu untuk memfilter tampilan</div>
         </div>
       </div>
-      <div class="cat-grid" id="catGrid">
+      <div class="cat-grid" id="catGrid" role="list">
         <!-- injected by JS -->
       </div>
 
@@ -175,7 +173,7 @@
         <div class="chart-card full">
           <div class="chart-title">Sentimen per Kategori</div>
           <div class="chart-desc">Perbandingan Positive / Neutral / Negative antar kategori produk</div>
-          <div class="chart-wrap tall"><canvas id="chartCatSent"></canvas></div>
+          <div class="chart-wrap tall"><canvas id="chartCatSent" aria-label="Sentiment per category chart"></canvas></div>
         </div>
       </div>
     </div>
@@ -192,23 +190,23 @@
       <div class="table-card">
         <div class="table-toolbar">
           <div class="search-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="tableSearch" placeholder="Cari produk atau review..." oninput="filterTable()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="tableSearch" placeholder="Cari produk atau review…" oninput="filterTable()" aria-label="Search reviews">
           </div>
-          <select class="tbl-filter" id="tblCatFilter" onchange="filterTable()">
+          <select class="tbl-filter" id="tblCatFilter" onchange="filterTable()" aria-label="Filter by category">
             <option value="all">Semua Kategori</option>
             <option value="Laptop">Laptop</option>
             <option value="Ponsel">Ponsel</option>
             <option value="Kulkas">Kulkas</option>
             <option value="Smart TV">Smart TV</option>
           </select>
-          <select class="tbl-filter" id="tblSentFilter" onchange="filterTable()">
+          <select class="tbl-filter" id="tblSentFilter" onchange="filterTable()" aria-label="Filter by sentiment">
             <option value="all">Semua Sentimen</option>
             <option value="Positive">Positive</option>
             <option value="Neutral">Neutral</option>
             <option value="Negative">Negative</option>
           </select>
-          <select class="tbl-filter" id="tblRatingFilter" onchange="filterTable()">
+          <select class="tbl-filter" id="tblRatingFilter" onchange="filterTable()" aria-label="Filter by rating">
             <option value="all">Semua Rating</option>
             <option value="5">★ 5</option>
             <option value="4">★ 4</option>
@@ -217,7 +215,7 @@
             <option value="1">★ 1</option>
           </select>
         </div>
-        <div class="table-wrap">
+        <div class="table-wrap" role="region" aria-label="Reviews table" tabindex="0">
           <table>
             <thead>
               <tr>
@@ -234,7 +232,7 @@
         </div>
         <div class="table-footer">
           <span id="tbl-count-label" class="text-muted"></span>
-          <div class="pagination" id="pagination"></div>
+          <div class="pagination" id="pagination" role="navigation" aria-label="Table pagination"></div>
         </div>
       </div>
     </div>
@@ -253,12 +251,12 @@
         <div class="chart-card">
           <div class="chart-title">Sentimen per Kategori (%)</div>
           <div class="chart-desc">Persentase sentimen dalam setiap kategori produk</div>
-          <div class="chart-wrap tall"><canvas id="chartSentPct"></canvas></div>
+          <div class="chart-wrap tall"><canvas id="chartSentPct" aria-label="Sentiment percentage per category"></canvas></div>
         </div>
         <div class="chart-card">
           <div class="chart-title">Rata-rata Rating per Kategori</div>
           <div class="chart-desc">Perbandingan skor kepuasan antar kategori</div>
-          <div class="chart-wrap tall"><canvas id="chartAvgRating"></canvas></div>
+          <div class="chart-wrap tall"><canvas id="chartAvgRating" aria-label="Average rating per category"></canvas></div>
         </div>
       </div>
       <div class="themes-grid" id="sentThemesGrid"></div>
@@ -272,7 +270,7 @@
           <div class="section-title">AI Insights</div>
           <div class="section-sub">Ringkasan dan rekomendasi yang dihasilkan oleh AI Agent</div>
         </div>
-        <span class="badge" style="background:#eef0fb;color:#4f63d2;font-size:11px">✦ AI Generated</span>
+        <span class="badge" style="background:#eef0fb;color:#4f63d2;font-size:11px;flex-shrink:0">✦ AI Generated</span>
       </div>
       <div id="aiSummaryCards"></div>
       <div class="section-header" style="margin-top:4px">
@@ -288,7 +286,6 @@
   </div><!-- /content -->
 </div><!-- /main -->
 
-<!-- External JS: data first, then app logic -->
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>

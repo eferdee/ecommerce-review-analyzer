@@ -90,12 +90,16 @@ function navigate(page, el){
 }
 
 function toggleSidebar(){
-  document.getElementById('sidebar').classList.toggle('open');
+  const isOpen = document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('sb-overlay').classList.toggle('open');
+  const btn = document.querySelector('.mobile-toggle');
+  if(btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 function closeSidebar(){
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sb-overlay').classList.remove('open');
+  const btn = document.querySelector('.mobile-toggle');
+  if(btn) btn.setAttribute('aria-expanded', 'false');
 }
 
 // ════════════════════════════════════════════════════════════════════════════
